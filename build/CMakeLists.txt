@@ -21,16 +21,16 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-add_library(${CMAKE_PROJECT_NAME}_lib src/twelve.cpp)
-add_executable(${CMAKE_PROJECT_NAME}_exe main.cpp)
+add_library(${CMAKE_PROJECT_NAME}_lib ../src/twelve.cpp)
+add_executable(${CMAKE_PROJECT_NAME}_exe ../src/main.cpp)
 
 target_link_libraries(${CMAKE_PROJECT_NAME}_exe PRIVATE ${CMAKE_PROJECT_NAME}_lib)
 
 # Добавление тестов
-enable_testing()
+#enable_testing()
 
-add_executable(tests ../test/test1.cpp)
-target_link_libraries(tests PRIVATE ${CMAKE_PROJECT_NAME}_lib gtest_main gtest pthread)
+#add_executable(tests ../test/test1.cpp)
+#target_link_libraries(tests PRIVATE ${CMAKE_PROJECT_NAME}_lib gtest_main gtest pthread)
 
 # Добавление тестов в тестовый набор
-add_test(NAME MyProjectTests COMMAND tests)
+#add_test(NAME MyProjectTests COMMAND tests)

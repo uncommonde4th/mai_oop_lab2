@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /home/uncommonde4th/Projects/C++/mai_oop_lab2/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/usr/bin/ctest $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
@@ -188,6 +198,19 @@ lab2_exe/fast:
 .PHONY : lab2_exe/fast
 
 #=============================================================================
+# Target rules for targets named tests
+
+# Build rule for target.
+tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests
+.PHONY : tests
+
+# fast build rule for target.
+tests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
+.PHONY : tests/fast
+
+#=============================================================================
 # Target rules for targets named gmock
 
 # Build rule for target.
@@ -287,6 +310,30 @@ home/uncommonde4th/Projects/C++/mai_oop_lab2/src/twelve.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab2_lib.dir/build.make CMakeFiles/lab2_lib.dir/home/uncommonde4th/Projects/C++/mai_oop_lab2/src/twelve.cpp.s
 .PHONY : home/uncommonde4th/Projects/C++/mai_oop_lab2/src/twelve.cpp.s
 
+home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.o: home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.cpp.o
+.PHONY : home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.o
+
+# target to build an object file
+home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.cpp.o
+.PHONY : home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.cpp.o
+
+home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.i: home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.cpp.i
+.PHONY : home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.i
+
+# target to preprocess a source file
+home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.cpp.i
+.PHONY : home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.cpp.i
+
+home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.s: home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.cpp.s
+.PHONY : home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.s
+
+# target to generate assembly for a file
+home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.cpp.s
+.PHONY : home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -299,18 +346,23 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
 	@echo "... lab2_exe"
 	@echo "... lab2_lib"
+	@echo "... tests"
 	@echo "... home/uncommonde4th/Projects/C++/mai_oop_lab2/src/main.o"
 	@echo "... home/uncommonde4th/Projects/C++/mai_oop_lab2/src/main.i"
 	@echo "... home/uncommonde4th/Projects/C++/mai_oop_lab2/src/main.s"
 	@echo "... home/uncommonde4th/Projects/C++/mai_oop_lab2/src/twelve.o"
 	@echo "... home/uncommonde4th/Projects/C++/mai_oop_lab2/src/twelve.i"
 	@echo "... home/uncommonde4th/Projects/C++/mai_oop_lab2/src/twelve.s"
+	@echo "... home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.o"
+	@echo "... home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.i"
+	@echo "... home/uncommonde4th/Projects/C++/mai_oop_lab2/test/test1.s"
 .PHONY : help
 
 

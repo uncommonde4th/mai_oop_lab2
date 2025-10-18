@@ -1,1 +1,0 @@
-/usr/bin/g++-14  -Werror=maybe-uninitialized -Wl,--dependency-file=CMakeFiles/lab2_exe.dir/link.d CMakeFiles/lab2_exe.dir/home/uncommonde4th/Projects/C++/mai_oop_lab2/src/main.cpp.o -o lab2_exe  liblab2_lib.a

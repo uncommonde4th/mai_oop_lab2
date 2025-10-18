@@ -30,16 +30,8 @@ public:
     Twelve(Twelve&& other) noexcept;
     ~Twelve() noexcept;
 
-    Twelve& operator=(const Twelve& other);
-    Twelve& operator=(Twelve&& other) noexcept;
-
     Twelve plus(const Twelve& other) const;
     Twelve minus(const Twelve& other) const;
-    Twelve copy() const;
-
-    Twelve& plusAssign(const Twelve& other);
-    Twelve& minusAssign(const Twelve& other);
-
     bool equal(const Twelve& other) const;
     bool less(const Twelve& other) const;
     bool greater(const Twelve& other) const;

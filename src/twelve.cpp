@@ -120,30 +120,6 @@ Twelve::~Twelve() noexcept{
     delete[] nums;
 }
 
-Twelve& Twelve::operator=(const Twelve& other){
-    if (this == &other){
-        return *this;
-    }
-    delete[] nums;
-    size = other.size;
-    nums = new unsigned char[size];
-    for (size_t i = 0; i < size; i++){
-        nums[i] = other.nums[i];
-    }
-    return *this;
-}
-
-Twelve& Twelve::operator=(Twelve&& other) noexcept{
-    if (this != &other){
-        delete[] nums;
-        nums = other.nums;
-        size = other.size;
-        other.nums = nullptr;
-        other.size = 0;
-    }
-    return *this;
-}
-
 Twelve Twelve::plus(const Twelve& other) const{
     size_t max_size = std::max(size, other.size);
     unsigned char* result_array = new unsigned char[max_size + 1];
@@ -207,20 +183,6 @@ Twelve Twelve::minus(const Twelve& other) const{
     result.normalize();
 
     return result;
-}
-
-Twelve Twelve::copy() const{
-    return Twelve(*this);
-}
-
-Twelve& Twelve::plusAssign(const Twelve& other){
-    *this = this->plus(other);
-    return *this;
-}
-
-Twelve& Twelve::minusAssign(const Twelve& other){
-    *this = this->minus(other);
-    return *this;
 }
 
 bool Twelve::equal(const Twelve& other) const{

@@ -54,17 +54,6 @@ TEST(TwelveTest, CopyConstructor) {
     EXPECT_EQ(copy.toString(), "1AB");
 }
 
-TEST(TwelveTest, CopyAssignment) {
-    Twelve original({'1', '2', '3'});
-    Twelve copy;
-    copy = original;
-    EXPECT_EQ(copy.getSize(), 3);
-    EXPECT_EQ(copy.getDigit(0), 3);
-    EXPECT_EQ(copy.getDigit(1), 2);
-    EXPECT_EQ(copy.getDigit(2), 1);
-    EXPECT_EQ(copy.toString(), "123");
-}
-
 TEST(TwelveTest, Addition) {
     Twelve num1("12");
     Twelve num2("B");
@@ -94,20 +83,6 @@ TEST(TwelveTest, SubtractionThrowsWhenNegative) {
     }, std::logic_error);
 }
 
-TEST(TwelveTest, PlusAssign) {
-    Twelve num1("5");
-    Twelve num2("7");
-    num1.plusAssign(num2);
-    EXPECT_EQ(num1.toString(), "10");
-}
-
-TEST(TwelveTest, MinusAssign) {
-    Twelve num1("A");
-    Twelve num2("3");
-    num1.minusAssign(num2);
-    EXPECT_EQ(num1.toString(), "7");
-}
-
 TEST(TwelveTest, Equality) {
     Twelve num1("1AB");
     Twelve num2("1AB");
@@ -130,16 +105,6 @@ TEST(TwelveTest, GreaterThan) {
     Twelve num2("A");
     EXPECT_TRUE(num1.greater(num2));
     EXPECT_FALSE(num2.greater(num1));
-}
-
-TEST(TwelveTest, CopyMethod) {
-    Twelve original({'1', 'A', 'B'});
-    Twelve copy = original.copy();
-    EXPECT_EQ(copy.getSize(), 3);
-    EXPECT_EQ(copy.getDigit(0), 11);
-    EXPECT_EQ(copy.getDigit(1), 10);
-    EXPECT_EQ(copy.getDigit(2), 1);
-    EXPECT_EQ(copy.toString(), "1AB");
 }
 
 TEST(TwelveTest, GetSize) {

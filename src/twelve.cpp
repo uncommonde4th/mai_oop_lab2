@@ -29,7 +29,7 @@ void Twelve::initString(const std::string& str){
         char c = str[str.length() - 1 - i];
         if (!isValidChar(c)) {
             delete[] nums;
-            throw std::invalid_argument("Неприемлимая цифра для СИ с основанием 12");
+            throw std::invalid_argument("Неприемлимая цифра для СC с основанием 12");
         }
         nums[i] = c;
     }
@@ -73,7 +73,7 @@ Twelve::Twelve() : size(1){
 
 Twelve::Twelve(const size_t& n, unsigned char t) : size(n){
     if (t >= base){
-        throw std::invalid_argument("Слишком большая цифра для СИ с основанием 12");
+        throw std::invalid_argument("Слишком большая цифра для СC с основанием 12");
     }
     nums = new unsigned char[size];
     for (size_t i = 0; i < size; i++){
@@ -89,7 +89,7 @@ Twelve::Twelve(const std::initializer_list<unsigned char>& t) : size(t.size()){
         --it;
         if (!isValidChar(*it)) {
             delete[] nums;
-            throw std::invalid_argument("Неприемлимая цифра для СИ с основанием 12");
+            throw std::invalid_argument("Неприемлимая цифра для СC с основанием 12");
         }
         nums[i++] = *it;
     }
@@ -274,11 +274,11 @@ unsigned char Twelve::charToDigit(char c){
     if (c >= '0' && c <= '9') return c - '0';
     if (c >= 'A' && c <= 'B') return c - 'A' + 10;
     if (c >= 'a' && c <= 'b') return c - 'a' + 10;
-    throw std::invalid_argument("Неприемлимая цифра для СИ с основанием 12");
+    throw std::invalid_argument("Неприемлимая цифра для СC с основанием 12");
 }
 
 char Twelve::digitToChar(unsigned char digit){
     if (digit < 10) return '0' + digit;
     if (digit < base) return 'A' + (digit - 10);
-    throw std::invalid_argument("Неприемлимая цифра для СИ с основанием 12");
+    throw std::invalid_argument("Неприемлимая цифра для СC с основанием 12");
 }

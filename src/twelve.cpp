@@ -194,6 +194,7 @@ bool Twelve::equal(const Twelve& other) const{
             return false;
         }
     }
+
     return true;
 }
 
@@ -259,6 +260,7 @@ std::string Twelve::toString() const{
     for (size_t i = size; i > 0; --i) {
         result += nums[i - 1];
     }
+
     return result;
 }
 
@@ -271,14 +273,15 @@ bool Twelve::isValidChar(unsigned char c){
 }
 
 unsigned char Twelve::charToDigit(char c){
-    if (c >= '0' && c <= '9') return c - '0';
-    if (c >= 'A' && c <= 'B') return c - 'A' + 10;
-    if (c >= 'a' && c <= 'b') return c - 'a' + 10;
+    if (c >= '0' && c <= '9') { return c - '0'; }
+    if (c >= 'A' && c <= 'B') { return c - 'A' + 10; }
+    if (c >= 'a' && c <= 'b') { return c - 'a' + 10; }
+
     throw std::invalid_argument("Неприемлимая цифра для СC с основанием 12");
 }
 
 char Twelve::digitToChar(unsigned char digit){
-    if (digit < 10) return '0' + digit;
-    if (digit < base) return 'A' + (digit - 10);
+    if (digit < 10) { return '0' + digit; }
+    if (digit < base) { return 'A' + (digit - 10); }
     throw std::invalid_argument("Неприемлимая цифра для СC с основанием 12");
 }

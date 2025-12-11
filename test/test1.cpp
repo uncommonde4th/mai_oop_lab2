@@ -54,6 +54,16 @@ TEST(TwelveTest, CopyConstructor) {
     EXPECT_EQ(copy.toString(), "1AB");
 }
 
+TEST(TwelveTest, CopyFunc) {
+    Twelve original({'1', 'A', 'B'});
+    Twelve copy = original.copy();
+    EXPECT_EQ(copy.getSize(), 3);
+    EXPECT_EQ(copy.getDigit(0), 11);
+    EXPECT_EQ(copy.getDigit(1), 10);
+    EXPECT_EQ(copy.getDigit(2), 1);
+    EXPECT_EQ(copy.toString(), "1AB");
+}
+
 TEST(TwelveTest, Addition) {
     Twelve num1("12");
     Twelve num2("B");

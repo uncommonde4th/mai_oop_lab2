@@ -120,6 +120,19 @@ Twelve::~Twelve() noexcept{
     delete[] nums;
 }
 
+// арифметическое копирование
+Twelve Twelve::copy() const {
+    Twelve result;
+    result.size = size;
+    result.nums = new unsigned char[size];
+
+    for (size_t i = 0; i < size; i++) {
+        result.nums[i] = nums[i];
+    }
+
+    return result;
+}
+
 Twelve Twelve::plus(const Twelve& other) const{
     size_t max_size = std::max(size, other.size);
     unsigned char* result_array = new unsigned char[max_size + 1];

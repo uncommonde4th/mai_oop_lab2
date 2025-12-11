@@ -29,7 +29,8 @@ public:
     Twelve(const Twelve& other);
     Twelve(Twelve&& other) noexcept;
     ~Twelve() noexcept;
-
+    
+    Twelve copy() const;
     Twelve plus(const Twelve& other) const;
     Twelve minus(const Twelve& other) const;
     bool equal(const Twelve& other) const;
